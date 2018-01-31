@@ -1,0 +1,52 @@
+<!---
+How to use Jquery for getting data from API or other links
+-->
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <title>JavaScript Checking</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"  crossorigin="anonymous">
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 col-sm-offset-6">
+        <h2>Learn About Click Events</h2>
+        <p class="answer"></p>
+        <button class="question btn btn-primary">Ask Me</button>
+      </div>
+      <div class="col-lg-6">
+
+      </div>
+    </div>
+  </div>
+
+
+  <script src="https://code.jquery.com/jquery-3.3.1.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"  crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="u.js" charset="utf-8"></script>
+  <script>
+     $(document).ready(function(){
+       var url = 'http://hn.algolia.com/api/v1/search?query=JavaScript';
+
+       $.getJSON(url,function(data){
+         console.log(data);
+         var allNews = data.hits; // 20 News
+         var eachNews = '';
+         allNews.map(function(item,index,array){
+           $('.question').on('click',function(){
+             eachNews += "<div><a href='";
+             eachNews += item.url;
+             eachNews += "'>";
+             eachNews += item.title;
+             eachNews += '</a></div>';
+             $('.answer').html(eachNews);
+           });
+         });
+       });
+     });
+  </script>
+
+</body>
+</html>
