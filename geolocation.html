@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <title>JavaScript Checking</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"  crossorigin="anonymous">
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 col-sm-offset-6">
+        <h2>Learn About Click Events</h2>
+        <p class="answer"></p>
+        <button class="question btn btn-primary">Ask Me</button>
+      </div>
+      <div class="col-lg-6">
+
+      </div>
+    </div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.3.1.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"  crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="u.js" charset="utf-8"></script>
+  <script>
+     if(navigator.geolocation){
+       navigator.geolocation.getCurrentPosition(function(position){
+         $('.answer').html("Latitude : " + position.coords.latitude + "<br/>" + "Longitude : " + position.coords.longitude);
+       });
+     }
+  </script>
+
+</body>
+</html>
